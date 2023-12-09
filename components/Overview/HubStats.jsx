@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Text,
   View,
@@ -6,7 +7,9 @@ import {
   ScrollView,
   Pressable,
 } from "react-native";
-
+import DateTimePicker from "@react-native-community/datetimepicker";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { COLORS } from "../../styles";
 const STATS = [
   {
     displayName: "",
@@ -16,7 +19,13 @@ const STATS = [
 ];
 
 const HubStats = () => {
+  const [date, setDate] = useState(new Date());
+  const [showDatePicker, setShowDatePicker] = useState(false);
+
+  const toggleDatePicker = () => setShowDatePicker((prevState) => !prevState);
   const openModalHandler = () => {};
+
+  onDateChange = ({ type }, selectedDate) => {};
 
   //   const voiceList = voiceData.map((audioData) => {
   //     return (
@@ -33,9 +42,49 @@ const HubStats = () => {
 
   return (
     <View style={styles.hubStats}>
-      <View style={{ marginBottom: 20, marginTop: 10 }}>
-        <Text style={{ color: "white", fontSize: 16 }}>Date</Text>
-      </View>
+      {showDatePicker && (
+        <DateTimePicker
+          style={{
+            position: "absolute",
+            zIndex: 10000,
+            backgroundColor: "white",
+            width: "100%",
+            height: 200,
+            // top: "50%",
+            // bottom: "50%",
+            // left: "50%",
+            // right: "50%",
+            // transform: translate(-50%, -50%);
+          }}
+          mode="date"
+          display="spinner"
+          value={date}
+        />
+      )}
+      <Pressable
+        onPress={toggleDatePicker}
+        style={{
+          marginBottom: 20,
+          marginTop: 10,
+          flexDirection: "row",
+          alignItems: "center",
+        }}
+      >
+        <Ionicons name="calendar-outline" size={25} color={COLORS.white} />
+        <Text
+          style={{
+            color: "white",
+            fontSize: 15,
+            marginLeft: 5,
+            backgroundColor: "#131e6e",
+            borderRadius: 10,
+            paddingVertical: 5,
+            paddingHorizontal: 10,
+          }}
+        >
+          Oct 17, 2022
+        </Text>
+      </Pressable>
       <View style={{ marginBottom: 20 }}>
         <Text style={{ color: "white", fontSize: 18, textAlign: "center" }}>
           InstaHub Office
@@ -89,7 +138,7 @@ export default HubStats;
 
 const styles = StyleSheet.create({
   hubStats: {
-    backgroundColor: "#0c0c64",
+    backgroundColor: COLORS.dark_blue,
     padding: 15,
     borderBottomEndRadius: 10,
     borderBottomLeftRadius: 10,
@@ -100,13 +149,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     minHeight: 100,
     width: 110,
-    backgroundColor: "#ededed",
+    backgroundColor: COLORS.light_grey,
     borderRadius: 10,
     marginRight: 10,
     padding: 10,
     gap: 5,
 
-    shadowColor: "black",
+    shadowColor: COLORS.black,
     shadowOffset: {
       width: 0,
       height: 4,

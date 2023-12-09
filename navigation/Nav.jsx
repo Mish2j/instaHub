@@ -1,5 +1,8 @@
+import { Image } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
+import { COLORS } from "../styles";
 
 import Ionicons from "@expo/vector-icons/Ionicons";
 
@@ -11,37 +14,58 @@ const Tab = createBottomTabNavigator();
 const Nav = () => {
   const screenOptions = ({ navigation }) => {
     return {
-      // headerShown: false,
-      // tabBarActiveTintColor: COLORS.yellow_dark,
-      // tabBarInactiveTintColor: COLORS.yellow_dark,
-      // tabBarStyle: {
-      //   borderTopWidth: 0,
-      //   borderTopColor: "transparent",
-      //   elevation: 0,
-      //   shadowOpacity: 0,
-      // },
+      tabBarActiveTintColor: COLORS.light_blue,
+      tabBarInactiveTintColor: COLORS.dark_grey,
+      headerTitleAlign: "left",
+      headerLeftContainerStyle: {
+        paddingLeft: 15,
+      },
+      headerTitleStyle: {
+        marginLeft: -10,
+      },
+      headerRightContainerStyle: {
+        paddingRight: 15,
+      },
+      headerStyle: {
+        backgroundColor: COLORS.light_grey,
+      },
+      tabBarStyle: {
+        backgroundColor: COLORS.light_grey,
+      },
       tabBarLabelStyle: {
-        fontSize: 12,
-        // color: COLORS.black,
+        fontSize: 13,
       },
       headerLeft: () => {
-        return <Ionicons name="grid" size={32} color="green" />;
+        return (
+          <Image
+            style={{ width: 32, height: 32 }}
+            source={require("../assets/images/instaHub_logo.png")}
+          />
+        );
       },
       headerRight: () => {
-        return <Ionicons name="grid" size={32} color="green" />;
+        return (
+          <Ionicons
+            name="person-circle-outline"
+            size={28}
+            color={COLORS.black}
+          />
+        );
       },
     };
   };
 
   return (
     <NavigationContainer>
-      <Tab.Navigator screenOptions={screenOptions}>
+      <Tab.Navigator initialRouteName="Overview" screenOptions={screenOptions}>
         <Tab.Screen
           name="Overview"
           component={OverviewScreen}
           options={{
             tabBarLabel: "Overview",
-            tabBarIcon: () => <Ionicons name="grid" size={28} color="green" />,
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="grid" size={size} color={color} />
+            ),
           }}
         />
 
@@ -50,8 +74,8 @@ const Nav = () => {
           component={AnalyticsScreen}
           options={{
             tabBarLabel: "Analytics",
-            tabBarIcon: () => (
-              <Ionicons name="analytics" size={28} color="green" />
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="analytics" size={size} color={color} />
             ),
           }}
         />
