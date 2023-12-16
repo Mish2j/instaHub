@@ -8,14 +8,12 @@ import {
   Pressable,
 } from "react-native";
 
+import { COLORS } from "../../styles";
+
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { LineChart } from "react-native-gifted-charts";
-
 import HubStats from "./HubStats";
-
-import { COLORS } from "../../styles";
 import Tab from "../UI/Tab";
-import ScrollWrapper from "../UI/ScrollWrapper";
 
 const DATALOGGER = [
   {
@@ -41,6 +39,7 @@ const DATALOGGER = [
 ];
 
 const TAB_LABELS = ["Days", "Weeks", "Months"];
+
 const Overview = () => {
   const data = [
     { value: 0 },
@@ -166,13 +165,13 @@ const styles = StyleSheet.create({
     elevation: 9,
   },
   tabContainer: {
-    marginBottom: 5,
+    marginBottom: 10,
   },
   chartContainer: {
     // justifyContent: "center",
     // alignItems: "center",
-    // backgroundColor: "pink",
     width: "100%",
     maxWidth: 500,
+    marginBottom: 10,
   },
 });

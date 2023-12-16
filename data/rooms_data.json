@@ -1,0 +1,70 @@
+[
+  {
+    "id": "1",
+    "room": "Room #1",
+    "room_stats": [
+      {
+        "id": "58694a0f-3da1-471f-bd96-145571e29d72",
+        "hour": "1 AM",
+        "isOccupied": true,
+        "isLightON": true,
+        "energyWaste": false
+      },
+      {
+        "id": "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
+        "hour": "2 AM",
+        "isOccupied": false,
+        "isLightON": false,
+        "energyWaste": false
+      },
+      {
+        "id": "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
+        "hour": "3 AM",
+        "isOccupied": true,
+        "isLightON": true,
+        "energyWaste": true
+      },
+      {
+        "id": "3ac68afc-46c2-3da1-a4f8-145571e29d72",
+        "hour": "4 AM",
+        "isOccupied": true,
+        "isLightON": false,
+        "energyWaste": false
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "room": "Room #2",
+    "room_stats": [
+      {
+        "id": "58694a0f-3da1-471f-bd96-145571e29d72",
+        "hour": "1 AM",
+        "isOccupied": false,
+        "isLightON": false,
+        "energyWaste": false
+      },
+      {
+        "id": "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
+        "hour": "2 AM",
+        "isOccupied": false,
+        "isLightON": false,
+        "energyWaste": false
+      },
+      {
+        "id": "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
+        "hour": "3 AM",
+        "isOccupied": true,
+        "isLightON": true,
+        "energyWaste": true
+      },
+      {
+        "id": "3ac68afc-46c2-3da1-a4f8-145571e29d72",
+        "hour": "4 AM",
+        "isOccupied": false,
+        "isLightON": false,
+        "energyWaste": false
+      }
+    ]
+  }
+]

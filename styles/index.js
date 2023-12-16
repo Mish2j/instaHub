@@ -8,27 +8,6 @@ export const COLORS = {
   black: "#000000",
   green: "#47ba6b",
   red: "#b1615a",
+  yellow: "#eca706",
+  danger_red: "#e60808",
 };
-
-//   export const FONT_WEIGHT = {
-//     regular: '400',
-//     medium: '500',
-//     bold: '700',
-//   };
-
-//   export const FONT_NUNITO = {
-//     regular: 'Nunito-Regular',
-//     medium: 'Nunito-Medium',
-//     bold: 'Nunito-Bold',
-//   };
-
-//   export const SHADOW = {
-//     shadowColor: COLORS.black,
-//     shadowOffset: {
-//       width: 0,
-//       height: 4,
-//     },
-//     shadowOpacity: 0.32,
-//     shadowRadius: 5.46,
-//     elevation: 9,
-//   };
