@@ -6,6 +6,8 @@ import {
   ActivityIndicator,
 } from "react-native";
 
+import Ionicons from "@expo/vector-icons/Ionicons";
+
 import { COLORS } from "../../styles";
 
 const TextButton = ({
@@ -15,7 +17,9 @@ const TextButton = ({
   containerStyle,
   isLoading,
   spinnerColor,
-  icon,
+  iconName,
+  iconSize,
+  iconColor,
 }) => {
   return (
     <Pressable
@@ -26,7 +30,13 @@ const TextButton = ({
       ]}
     >
       <View style={styles.container}>
-        {icon ? icon : null}
+        {iconName ? (
+          <Ionicons
+            name={iconName}
+            size={iconSize || 25}
+            color={iconColor || COLORS.white}
+          />
+        ) : null}
         {isLoading ? (
           <ActivityIndicator size="large" color={spinnerColor} />
         ) : (
@@ -52,7 +62,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   label: {
-    fontSize: 20,
+    fontSize: 16,
     textAlign: "center",
     color: COLORS.white,
   },

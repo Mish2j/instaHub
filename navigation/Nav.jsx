@@ -6,8 +6,8 @@ import { COLORS } from "../styles";
 
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-import OverviewScreen from "../screens/Overview";
-import AnalyticsScreen from "../screens/Analytics";
+import OverviewScreen from "../screens/OverviewScreen";
+import AnalyticsScreen from "../screens/AnalyticsScreen";
 
 const Tab = createBottomTabNavigator();
 

@@ -1,136 +1,92 @@
 import { useState } from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  SafeAreaView,
-  ScrollView,
-  Pressable,
-} from "react-native";
-import DateTimePicker from "@react-native-community/datetimepicker";
-import Ionicons from "@expo/vector-icons/Ionicons";
+import { Text, View, StyleSheet, ScrollView, Pressable } from "react-native";
+
 import { COLORS } from "../../styles";
-const STATS = [
-  {
-    displayName: "",
-    stat: "",
-    date: "",
-  },
-];
+
+import Ionicons from "@expo/vector-icons/Ionicons";
+import DatePicker from "./DatePicker";
 
 const HubStats = () => {
-  const [date, setDate] = useState(new Date());
   const [showDatePicker, setShowDatePicker] = useState(false);
 
   const toggleDatePicker = () => setShowDatePicker((prevState) => !prevState);
-  const openModalHandler = () => {};
-
-  onDateChange = ({ type }, selectedDate) => {};
-
-  //   const voiceList = voiceData.map((audioData) => {
-  //     return (
-  //       <Pressable
-  //         // key={}
-  //         onPress={openModalHandler}
-  //         // style={({ pressed }) => [styles.audioItem]}
-  //       >
-  //         {/* <Text style={styles.displayName}>{audioData.displayName}</Text>
-  //         <Text style={styles.duration}>{audioData.duration}</Text> */}
-  //       </Pressable>
-  //     );
-  //   });
 
   return (
-    <View style={styles.hubStats}>
+    <>
       {showDatePicker && (
-        <DateTimePicker
-          style={{
-            position: "absolute",
-            zIndex: 10000,
-            backgroundColor: "white",
-            width: "100%",
-            height: 200,
-            // top: "50%",
-            // bottom: "50%",
-            // left: "50%",
-            // right: "50%",
-            // transform: translate(-50%, -50%);
-          }}
-          mode="date"
-          display="spinner"
-          value={date}
-        />
+        <DatePicker onClose={() => setShowDatePicker(false)} />
       )}
-      <Pressable
-        onPress={toggleDatePicker}
-        style={{
-          marginBottom: 20,
-          marginTop: 10,
-          flexDirection: "row",
-          alignItems: "center",
-        }}
-      >
-        <Ionicons name="calendar-outline" size={25} color={COLORS.white} />
-        <Text
+      <View style={styles.hubStats}>
+        <Pressable
+          onPress={toggleDatePicker}
           style={{
-            color: "white",
-            fontSize: 15,
-            marginLeft: 5,
-            backgroundColor: "#131e6e",
-            borderRadius: 10,
-            paddingVertical: 5,
-            paddingHorizontal: 10,
+            marginBottom: 20,
+            marginTop: 10,
+            flexDirection: "row",
+            alignItems: "center",
           }}
         >
-          Oct 17, 2022
-        </Text>
-      </Pressable>
-      <View style={{ marginBottom: 20 }}>
-        <Text style={{ color: "white", fontSize: 18, textAlign: "center" }}>
-          InstaHub Office
-        </Text>
-      </View>
-      <View>
-        <ScrollView
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-          style={styles.scrollView}
-        >
-          <Pressable
-            // key={}
-            onPress={openModalHandler}
-            style={({ pressed }) => [styles.hubData]}
+          <Ionicons name="calendar-outline" size={25} color={COLORS.white} />
+          <Text
+            style={{
+              color: COLORS.white,
+              fontSize: 15,
+              marginLeft: 5,
+              backgroundColor: "#131e6e",
+              borderRadius: 10,
+              paddingVertical: 5,
+              paddingHorizontal: 10,
+            }}
           >
-            <Text>Rooms Occupied</Text>
-            <Text>12/50</Text>
-            <Text>64%</Text>
-            <Text>as of 3:12 PM</Text>
-          </Pressable>
+            Oct 17, 2022
+          </Text>
+        </Pressable>
+        <View style={{ marginBottom: 20 }}>
+          <Text
+            style={{ color: COLORS.white, fontSize: 18, textAlign: "center" }}
+          >
+            InstaHub Office
+          </Text>
+        </View>
+        <View>
+          <ScrollView
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            style={styles.scrollView}
+          >
+            <Pressable
+              // onPress={}
+              style={({ pressed }) => [styles.hubData]}
+            >
+              <Text>Rooms Occupied</Text>
+              <Text>12/50</Text>
+              <Text></Text>
+              <Text>as of 3:12 PM</Text>
+            </Pressable>
 
-          <Pressable
-            // key={}
-            onPress={openModalHandler}
-            style={({ pressed }) => [styles.hubData]}
-          >
-            <Text>Rooms Occupied</Text>
-            <Text>12/50</Text>
-            <Text>64%</Text>
-            <Text>as of 3:12 PM</Text>
-          </Pressable>
+            <Pressable
+              // onPress={}
+              style={({ pressed }) => [styles.hubData]}
+            >
+              <Text>Rooms Occupied</Text>
+              <Text>12/50</Text>
+              <Text>64%</Text>
+              <Text>as of 3:12 PM</Text>
+            </Pressable>
 
-          <Pressable
-            // key={}
-            onPress={openModalHandler}
-            style={({ pressed }) => [styles.hubData]}
-          >
-            <Text>Rooms Occupied</Text>
-            <Text>12/50</Text>
-            <Text>64%</Text>
-            <Text>as of 3:12 PM</Text>
-          </Pressable>
-        </ScrollView>
+            <Pressable
+              // onPress={}
+              style={({ pressed }) => [styles.hubData]}
+            >
+              <Text>Rooms Occupied</Text>
+              <Text>12/50</Text>
+              <Text>64%</Text>
+              <Text>as of 3:12 PM</Text>
+            </Pressable>
+          </ScrollView>
+        </View>
       </View>
-    </View>
+    </>
   );
 };
 
@@ -142,6 +98,7 @@ const styles = StyleSheet.create({
     padding: 15,
     borderBottomEndRadius: 10,
     borderBottomLeftRadius: 10,
+    position: "relative",
   },
   scrollView: {},
   hubData: {
